@@ -29,7 +29,7 @@ def predict_datapoint():
         Latitude=float(request.form.get('Latitude'))
         Longitude=float(request.form.get('Longitude'))
 
-        new_data_sc=standard_scaler.transform([[Temperature,RH,Ws,Rain,FFMC,DMC,ISI,Classes,Region]])
+        new_data_sc=standard_scaler.transform([[MedInc,HouseAge,AveRooms,Population,AveOccup,Latitude,Longitude]])
         result=ridge_model.predict(new_data_sc)
 
         return render_template('index.html', result=result[0])
